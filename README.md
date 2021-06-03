@@ -1,5 +1,5 @@
 # travclan
 
 To run the code. 
-  git clone
+  git clone ->
   npm start
