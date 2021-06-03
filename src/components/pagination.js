@@ -7,15 +7,15 @@ const Pagination = ({ customersPerPage, totalCustomers, paginate}) => {
     }
     return (
         <nav>
-            <ul>
+            <div style={{width: '50',display:'flex'}}>
                 {pageNumbers.map(number => (
-                    <li key={number}>
+                    <p key={number} style={{textDecoration:'none',padding:'10px'}}>
                         <a onClick={() => paginate(number)} href='!#'>
                             {number}
                         </a>
-                    </li>
+                    </p>
                 ))}
-            </ul>
+            </div>
         </nav>
     )
 }

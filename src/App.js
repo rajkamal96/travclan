@@ -4,6 +4,8 @@ import './App.css';
 import reactDom from 'react-dom';
 import Customers from './components/customers';
 import Pagination from './components/pagination';
+import { Route } from 'react-router-dom';
+import Profile from './components/Profile';
 
 const App = () => {
   const [customers, setCustomers] = useState([]);
@@ -30,7 +32,8 @@ const App = () => {
   console.log(customers);
   return (
     <div className='container'>
-      <h1>Bidders</h1>
+      <h1>Customers</h1>
+      <Route path="/profile" component={Profile} />
       <Customers customers={currentCustomers} loading={loading} />
       <Pagination 
         customersPerPage={customersPerPage} 
