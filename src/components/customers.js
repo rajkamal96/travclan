@@ -2,9 +2,13 @@ import React, { Fragment, useState } from "react";
 import { useHistory } from "react-router-dom";
 const Customers = ({ customers, loading }) => {
   const [isActive, setActive] = useState(true);
+  const [currentSort, setCurrentSort] = useState();
   const history = useHistory();
-  const handleClick = () => {
-      history.push("/profile");
+  const handleClick = (customer) => {
+      history.push({
+          pathname: "/profile",
+          data: customer
+      });
   };
 
   if (loading) {
@@ -15,9 +19,10 @@ const Customers = ({ customers, loading }) => {
     setActive(!isActive);
   }
 
+
   return (
     <Fragment>
-      <button onClick={toggleBid}>{isActive ? <p>Max</p> : <p>Min</p>}</button>
+      
       <table>
         <thead>
           <tr>
@@ -25,12 +30,12 @@ const Customers = ({ customers, loading }) => {
             <th>Email</th>
             <th>Phone</th>
             <th>Premium</th>
-            <th>{isActive ? <span>Max Bid</span> : <span>Min Bid</span>}</th>
+            <th>{isActive ? <span>Max Bid</span> : <span>Min Bid</span>} <button onClick={toggleBid}>{isActive ? <p>Min</p> : <p>Max</p>}</button></th>
           </tr>
         </thead>
         <tbody>
           {customers.map((customer) => (
-            <tr key={customer.id} onClick={handleClick}>
+            <tr key={customer.id} style={{cursor:'pointer',borderWidth: '1px', borderColor: 'black',borderStyle:'solid'}} onClick={() => handleClick(customer)}>
               <td>
                 {customer.firstname} {customer.lastname}
               </td>

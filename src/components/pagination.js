@@ -9,8 +9,8 @@ const Pagination = ({ customersPerPage, totalCustomers, paginate}) => {
         <nav>
             <div style={{width: '50',display:'flex'}}>
                 {pageNumbers.map(number => (
-                    <p key={number} style={{textDecoration:'none',padding:'10px'}}>
-                        <a onClick={() => paginate(number)} href='!#'>
+                    <p key={number} style={{textDecoration:'none',padding:'10px',cursor:'pointer'}}>
+                        <a onClick={() => paginate(number)}>
                             {number}
                         </a>
                     </p>
